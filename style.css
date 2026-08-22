@@ -2156,3 +2156,157 @@ h3, h4 {
     }
 
 }
+
+/* ==========================================
+   PÁGINA ESPECIAL - VOZES FEMININAS
+========================================== */
+
+.pagina-especial {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 80px 5%;
+}
+
+.especial-introducao {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 60px;
+}
+
+.especial-introducao h1 {
+    font-size: 70px;
+    margin: 15px 0;
+}
+
+.especial-introducao p {
+    font-size: 20px;
+    line-height: 1.7;
+}
+
+
+/* IMAGEM */
+
+.imagem-especial {
+    width: 100%;
+    margin-bottom: 80px;
+}
+
+.imagem-especial img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.15);
+}
+
+
+/* CONTEÚDO */
+
+.conteudo-especial,
+.poema-estudo,
+.autoras {
+    max-width: 1000px;
+    margin: 0 auto 90px;
+}
+
+.conteudo-especial h2,
+.poema-estudo h2,
+.autoras h2 {
+    font-size: 45px;
+    margin: 15px 0 30px;
+}
+
+.conteudo-especial p,
+.poema-estudo p {
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+
+/* REFLEXÃO */
+
+.pergunta-reflexao {
+    margin-top: 40px;
+    padding: 35px;
+    border-left: 5px solid #8b3a3a;
+    background: rgba(139, 58, 58, .08);
+}
+
+.pergunta-reflexao p {
+    margin-bottom: 0;
+}
+
+
+/* AUTORAS */
+
+.autoras-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.autoras-grid article {
+    padding: 30px;
+    border: 1px solid rgba(0,0,0,.12);
+    border-radius: 8px;
+    transition: transform .3s ease;
+}
+
+.autoras-grid article:hover {
+    transform: translateY(-5px);
+}
+
+.autoras-grid h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.autoras-grid p {
+    line-height: 1.6;
+}
+
+
+/* BOTÃO VOLTAR */
+
+.botao-voltar {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+    .pagina-especial {
+        padding: 50px 20px;
+    }
+
+    .especial-introducao h1 {
+        font-size: 45px;
+    }
+
+    .especial-introducao p {
+        font-size: 16px;
+    }
+
+    .imagem-especial {
+        margin-bottom: 50px;
+    }
+
+    .conteudo-especial h2,
+    .poema-estudo h2,
+    .autoras h2 {
+        font-size: 34px;
+    }
+
+    .conteudo-especial p,
+    .poema-estudo p {
+        font-size: 15px;
+    }
+
+    .autoras-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
