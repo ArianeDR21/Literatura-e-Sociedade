@@ -2310,3 +2310,220 @@ h3, h4 {
     }
 
 }
+
+/* =====================================================
+   RESPONSIVIDADE — CELULARES E TABLETS
+   ===================================================== */
+
+@media (max-width: 768px) {
+
+    /* ---------- CABEÇALHO ---------- */
+
+    .cabecalho {
+        padding: 18px 20px;
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    .botao-voltar {
+        font-size: 14px;
+        padding: 10px 16px;
+    }
+
+
+    /* ---------- PÁGINAS ESPECIAIS ---------- */
+
+    .pagina-especial {
+        padding: 45px 18px;
+    }
+
+
+    /* ---------- TÍTULO ---------- */
+
+    .especial-introducao {
+        text-align: center;
+    }
+
+    .especial-introducao h1 {
+        font-size: 38px;
+        line-height: 1.1;
+    }
+
+    .especial-introducao p {
+        font-size: 17px;
+        line-height: 1.5;
+    }
+
+
+    /* ---------- IMAGEM PRINCIPAL ---------- */
+
+    .imagem-especial {
+        width: 100%;
+        margin: 25px auto;
+    }
+
+    .imagem-especial img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 12px;
+    }
+
+
+    /* ---------- TEXTOS ---------- */
+
+    .conteudo-especial,
+    .poema-estudo {
+        padding: 25px 20px;
+        margin-top: 25px;
+    }
+
+    .conteudo-especial h2,
+    .poema-estudo h2 {
+        font-size: 27px;
+        line-height: 1.2;
+    }
+
+    .conteudo-especial p,
+    .poema-estudo p {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+
+    /* ---------- CARDS DOS AUTORES ---------- */
+
+    .autoras {
+        padding: 25px 0;
+    }
+
+    .autoras h2 {
+        font-size: 27px;
+        line-height: 1.2;
+        padding: 0 10px;
+    }
+
+    .autoras-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 0 5px;
+    }
+
+    .autoras-grid article {
+        padding: 22px;
+    }
+
+    .autoras-grid article h3 {
+        font-size: 21px;
+    }
+
+    .autoras-grid article p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+
+    /* ---------- ETIQUETAS ---------- */
+
+    .etiqueta {
+        font-size: 11px;
+        letter-spacing: 1px;
+    }
+
+
+    /* ---------- CAIXA DE REFLEXÃO ---------- */
+
+    .pergunta-reflexao {
+        padding: 20px;
+        margin-top: 25px;
+    }
+
+    .pergunta-reflexao strong {
+        font-size: 14px;
+    }
+
+    .pergunta-reflexao p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+
+    /* ---------- RODAPÉ ---------- */
+
+    .rodape {
+        text-align: center;
+    }
+
+    .rodape-conteudo {
+        padding: 30px 20px;
+    }
+
+    .rodape-logo h2 {
+        font-size: 24px;
+    }
+
+    .rodape-logo p {
+        font-size: 14px;
+    }
+
+    .rodape-final {
+        padding: 15px;
+        font-size: 12px;
+    }
+
+}
+
+
+
+/* =====================================================
+   CELULARES PEQUENOS
+   ===================================================== */
+
+@media (max-width: 480px) {
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .pagina-especial {
+        padding: 35px 14px;
+    }
+
+    .especial-introducao h1 {
+        font-size: 32px;
+    }
+
+    .especial-introducao p {
+        font-size: 15px;
+    }
+
+    .conteudo-especial,
+    .poema-estudo {
+        padding: 20px 16px;
+    }
+
+    .conteudo-especial h2,
+    .poema-estudo h2 {
+        font-size: 24px;
+    }
+
+    .conteudo-especial p,
+    .poema-estudo p {
+        font-size: 15px;
+        line-height: 1.65;
+    }
+
+    .autoras-grid article {
+        padding: 18px;
+    }
+
+    .autoras-grid article h3 {
+        font-size: 19px;
+    }
+
+}
