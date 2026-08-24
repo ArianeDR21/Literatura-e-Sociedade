@@ -166,3 +166,125 @@ if (botaoAcessibilidade && painelAcessibilidade) {
     });
 
 }
+/* =====================================================
+   GALERIA DE PRODUÇÕES
+   ===================================================== */
+
+const botoesImagem =
+    document.querySelectorAll(".abrir-imagem");
+
+const modalImagem =
+    document.getElementById("modal-imagem");
+
+const imagemAmpliada =
+    document.getElementById("imagem-ampliada");
+
+const tituloImagem =
+    document.getElementById("titulo-imagem");
+
+const fecharModal =
+    document.getElementById("fechar-modal");
+
+
+if (
+    botoesImagem.length > 0 &&
+    modalImagem
+) {
+
+    botoesImagem.forEach(function (botao) {
+
+        botao.addEventListener("click", function () {
+
+            const imagem =
+                botao.getAttribute("data-imagem");
+
+            const titulo =
+                botao.getAttribute("data-titulo");
+
+
+            imagemAmpliada.src = imagem;
+
+            imagemAmpliada.alt = titulo;
+
+            tituloImagem.textContent = titulo;
+
+
+            modalImagem.classList.add("aberto");
+
+            modalImagem.setAttribute(
+                "aria-hidden",
+                "false"
+            );
+
+        });
+
+    });
+
+
+    /* FECHAR */
+
+    fecharModal.addEventListener(
+        "click",
+        function () {
+
+            modalImagem.classList.remove("aberto");
+
+            modalImagem.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+        }
+    );
+
+
+    /* FECHAR CLICANDO FORA */
+
+    modalImagem.addEventListener(
+        "click",
+        function (evento) {
+
+            if (
+                evento.target === modalImagem
+            ) {
+
+                modalImagem.classList.remove(
+                    "aberto"
+                );
+
+                modalImagem.setAttribute(
+                    "aria-hidden",
+                    "true"
+                );
+
+            }
+
+        }
+    );
+
+
+    /* FECHAR COM ESC */
+
+    document.addEventListener(
+        "keydown",
+        function (evento) {
+
+            if (
+                evento.key === "Escape"
+            ) {
+
+                modalImagem.classList.remove(
+                    "aberto"
+                );
+
+                modalImagem.setAttribute(
+                    "aria-hidden",
+                    "true"
+                );
+
+            }
+
+        }
+    );
+
+}

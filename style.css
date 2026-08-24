@@ -3120,3 +3120,92 @@ button.botao-acessibilidade:focus {
     }
 
 }
+/* =====================================================
+   MODAL DE IMAGEM
+   ===================================================== */
+
+.modal-imagem {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0, 0, 0, 0.88);
+
+    z-index: 100000;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    padding: 30px;
+
+}
+
+
+.modal-imagem.aberto {
+
+    display: flex;
+
+}
+
+
+.modal-imagem img {
+
+    max-width: 90%;
+
+    max-height: 80vh;
+
+    object-fit: contain;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 5px 30px rgba(0, 0, 0, 0.5);
+
+}
+
+
+.fechar-modal {
+
+    position: absolute;
+
+    top: 20px;
+
+    right: 30px;
+
+    width: 45px;
+
+    height: 45px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: white;
+
+    color: #333;
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+}
+
+
+#titulo-imagem {
+
+    color: white;
+
+    font-size: 16px;
+
+    margin-top: 15px;
+
+    text-align: center;
+
+}
