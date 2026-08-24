@@ -2527,3 +2527,143 @@ h3, h4 {
     }
 
 }
+/* =====================================================
+   PAINEL DE ACESSIBILIDADE
+   ===================================================== */
+
+.acessibilidade {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+
+    display: flex;
+    gap: 8px;
+
+    z-index: 9999;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    padding: 8px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.20);
+}
+
+
+.acessibilidade button {
+    width: 42px;
+    height: 42px;
+
+    border: 2px solid #4b2e1f;
+
+    background: #fff;
+
+    color: #4b2e1f;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+
+.acessibilidade button:hover {
+    transform: scale(1.05);
+}
+
+
+.acessibilidade button:focus {
+    outline: 3px solid #0066cc;
+    outline-offset: 3px;
+}
+
+
+/* =====================================================
+   TEXTO AMPLIADO
+   ===================================================== */
+
+body.texto-grande {
+    font-size: 120%;
+}
+
+
+/* =====================================================
+   ALTO CONTRASTE
+   ===================================================== */
+
+body.alto-contraste {
+    background: #000 !important;
+
+    color: #fff !important;
+}
+
+
+body.alto-contraste header,
+body.alto-contraste main,
+body.alto-contraste section,
+body.alto-contraste footer,
+body.alto-contraste article,
+body.alto-contraste .conteudo-especial,
+body.alto-contraste .poema-estudo,
+body.alto-contraste .autoras-grid article {
+    background: #000 !important;
+
+    color: #fff !important;
+}
+
+
+body.alto-contraste h1,
+body.alto-contraste h2,
+body.alto-contraste h3,
+body.alto-contraste p,
+body.alto-contraste a,
+body.alto-contraste span {
+    color: #fff !important;
+}
+
+
+body.alto-contraste a {
+    text-decoration: underline;
+}
+
+
+body.alto-contraste button {
+    background: #fff !important;
+    color: #000 !important;
+
+    border: 2px solid #fff;
+}
+
+
+body.alto-contraste img {
+    filter: contrast(1.2);
+}
+
+
+/* =====================================================
+   CELULAR
+   ===================================================== */
+
+@media (max-width: 768px) {
+
+    .acessibilidade {
+        top: 10px;
+        right: 10px;
+
+        gap: 5px;
+
+        padding: 5px;
+    }
+
+
+    .acessibilidade button {
+        width: 36px;
+        height: 36px;
+
+        font-size: 14px;
+    }
+
+}
