@@ -132,3 +132,107 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     });
 
 });
+
+/* =====================================================
+   ACESSIBILIDADE
+   ===================================================== */
+
+
+/* ---------- AUMENTAR TEXTO ---------- */
+
+const btnAumentar = document.getElementById("btn-aumentar");
+
+if (btnAumentar) {
+
+    btnAumentar.addEventListener("click", function () {
+
+        document.body.classList.add("texto-grande");
+
+    });
+
+}
+
+
+/* ---------- DIMINUIR TEXTO ---------- */
+
+const btnDiminuir = document.getElementById("btn-diminuir");
+
+if (btnDiminuir) {
+
+    btnDiminuir.addEventListener("click", function () {
+
+        document.body.classList.remove("texto-grande");
+
+    });
+
+}
+
+
+/* ---------- ALTO CONTRASTE ---------- */
+
+const btnContraste = document.getElementById("btn-contraste");
+
+if (btnContraste) {
+
+    btnContraste.addEventListener("click", function () {
+
+        document.body.classList.toggle("alto-contraste");
+
+    });
+
+}
+
+
+/* ---------- LEITURA EM VOZ ALTA ---------- */
+
+const btnLeitura = document.getElementById("btn-leitura");
+
+if (btnLeitura) {
+
+    btnLeitura.addEventListener("click", function () {
+
+        /* Se já estiver lendo, interrompe */
+
+        if (speechSynthesis.speaking) {
+
+            speechSynthesis.cancel();
+
+            return;
+
+        }
+
+
+        /* Seleciona o conteúdo principal */
+
+        const conteudo = document.querySelector("main");
+
+        if (!conteudo) return;
+
+
+        /* Pega somente o texto */
+
+        const texto = conteudo.innerText;
+
+
+        /* Cria a leitura */
+
+        const leitura = new SpeechSynthesisUtterance(texto);
+
+
+        /* Português do Brasil */
+
+        leitura.lang = "pt-BR";
+
+
+        /* Velocidade */
+
+        leitura.rate = 0.9;
+
+
+        /* Inicia */
+
+        speechSynthesis.speak(leitura);
+
+    });
+
+}
