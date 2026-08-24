@@ -2527,120 +2527,193 @@ h3, h4 {
     }
 
 }
+
 /* =====================================================
-   PAINEL DE ACESSIBILIDADE
+   BOTÃO DE ACESSIBILIDADE
    ===================================================== */
 
-.acessibilidade {
-    position: fixed;
-    top: 20px;
-    right: 20px;
+.botao-acessibilidade {
 
-    display: flex;
-    gap: 8px;
+    position: fixed;
+
+    right: 18px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 52px;
+    height: 52px;
+
+    border-radius: 50%;
+
+    border: 2px solid #ffffff;
+
+    background: #4b2e1f;
+
+    color: #ffffff;
+
+    font-size: 25px;
+
+    cursor: pointer;
 
     z-index: 9999;
 
-    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 
-    padding: 8px;
-
-    border-radius: 12px;
-
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.20);
+    transition: 0.2s;
 }
 
 
-.acessibilidade button {
-    width: 42px;
-    height: 42px;
+.botao-acessibilidade:hover {
 
-    border: 2px solid #4b2e1f;
+    transform: translateY(-50%) scale(1.08);
 
-    background: #fff;
+}
+
+
+.botao-acessibilidade:focus {
+
+    outline: 3px solid #0066cc;
+
+    outline-offset: 3px;
+
+}
+
+
+
+/* =====================================================
+   PAINEL
+   ===================================================== */
+
+.painel-acessibilidade {
+
+    position: fixed;
+
+    right: 82px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 230px;
+
+    padding: 18px;
+
+    background: #ffffff;
+
+    border-radius: 14px;
+
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
+
+    z-index: 9998;
+
+    display: none;
+
+}
+
+
+/* Quando estiver aberto */
+
+.painel-acessibilidade.aberto {
+
+    display: block;
+
+}
+
+
+
+/* =====================================================
+   TÍTULO DO PAINEL
+   ===================================================== */
+
+.titulo-acessibilidade {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding-bottom: 12px;
+
+    margin-bottom: 10px;
+
+    border-bottom: 1px solid #ddd;
 
     color: #4b2e1f;
 
     font-size: 16px;
-    font-weight: bold;
+
+}
+
+
+.titulo-acessibilidade span {
+
+    font-size: 22px;
+
+}
+
+/* =====================================================
+   BOTÕES
+   ===================================================== */
+
+.painel-acessibilidade button {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 11px;
+
+    margin: 6px 0;
+
+    border: none;
 
     border-radius: 8px;
 
+    background: #f3eee8;
+
+    color: #3d2a20;
+
+    font-size: 14px;
+
+    text-align: left;
+
     cursor: pointer;
+
 }
 
 
-.acessibilidade button:hover {
-    transform: scale(1.05);
+.painel-acessibilidade button:hover {
+
+    background: #e5d7ca;
+
 }
 
 
-.acessibilidade button:focus {
+.painel-acessibilidade button:focus {
+
     outline: 3px solid #0066cc;
-    outline-offset: 3px;
+
+    outline-offset: 2px;
+
 }
 
 
-/* =====================================================
-   TEXTO AMPLIADO
-   ===================================================== */
+.painel-acessibilidade button span {
 
-body.texto-grande {
-    font-size: 120%;
+    min-width: 28px;
+
+    font-weight: bold;
+
+    font-size: 16px;
+
 }
 
-
-/* =====================================================
-   ALTO CONTRASTE
-   ===================================================== */
-
-body.alto-contraste {
-    background: #000 !important;
-
-    color: #fff !important;
-}
-
-
-body.alto-contraste header,
-body.alto-contraste main,
-body.alto-contraste section,
-body.alto-contraste footer,
-body.alto-contraste article,
-body.alto-contraste .conteudo-especial,
-body.alto-contraste .poema-estudo,
-body.alto-contraste .autoras-grid article {
-    background: #000 !important;
-
-    color: #fff !important;
-}
-
-
-body.alto-contraste h1,
-body.alto-contraste h2,
-body.alto-contraste h3,
-body.alto-contraste p,
-body.alto-contraste a,
-body.alto-contraste span {
-    color: #fff !important;
-}
-
-
-body.alto-contraste a {
-    text-decoration: underline;
-}
-
-
-body.alto-contraste button {
-    background: #fff !important;
-    color: #000 !important;
-
-    border: 2px solid #fff;
-}
-
-
-body.alto-contraste img {
-    filter: contrast(1.2);
-}
 
 
 /* =====================================================
@@ -2649,21 +2722,24 @@ body.alto-contraste img {
 
 @media (max-width: 768px) {
 
-    .acessibilidade {
-        top: 10px;
-        right: 10px;
+    .botao-acessibilidade {
 
-        gap: 5px;
+        right: 12px;
 
-        padding: 5px;
+        width: 46px;
+        height: 46px;
+
+        font-size: 21px;
+
     }
 
 
-    .acessibilidade button {
-        width: 36px;
-        height: 36px;
+    .painel-acessibilidade {
 
-        font-size: 14px;
+        right: 65px;
+
+        width: 210px;
+
     }
 
 }
