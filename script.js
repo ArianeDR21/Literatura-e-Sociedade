@@ -134,104 +134,34 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 });
 
 /* =====================================================
-   ACESSIBILIDADE
+   ABRIR / FECHAR PAINEL DE ACESSIBILIDADE
    ===================================================== */
 
+const botaoAcessibilidade =
+    document.getElementById("botao-acessibilidade");
 
-/* ---------- AUMENTAR TEXTO ---------- */
-
-const btnAumentar = document.getElementById("btn-aumentar");
-
-if (btnAumentar) {
-
-    btnAumentar.addEventListener("click", function () {
-
-        document.body.classList.add("texto-grande");
-
-    });
-
-}
+const painelAcessibilidade =
+    document.getElementById("painel-acessibilidade");
 
 
-/* ---------- DIMINUIR TEXTO ---------- */
+if (botaoAcessibilidade && painelAcessibilidade) {
 
-const btnDiminuir = document.getElementById("btn-diminuir");
+    botaoAcessibilidade.addEventListener("click", function () {
 
-if (btnDiminuir) {
-
-    btnDiminuir.addEventListener("click", function () {
-
-        document.body.classList.remove("texto-grande");
-
-    });
-
-}
+        const aberto =
+            painelAcessibilidade.classList.toggle("aberto");
 
 
-/* ---------- ALTO CONTRASTE ---------- */
-
-const btnContraste = document.getElementById("btn-contraste");
-
-if (btnContraste) {
-
-    btnContraste.addEventListener("click", function () {
-
-        document.body.classList.toggle("alto-contraste");
-
-    });
-
-}
+        botaoAcessibilidade.setAttribute(
+            "aria-expanded",
+            aberto
+        );
 
 
-/* ---------- LEITURA EM VOZ ALTA ---------- */
-
-const btnLeitura = document.getElementById("btn-leitura");
-
-if (btnLeitura) {
-
-    btnLeitura.addEventListener("click", function () {
-
-        /* Se já estiver lendo, interrompe */
-
-        if (speechSynthesis.speaking) {
-
-            speechSynthesis.cancel();
-
-            return;
-
-        }
-
-
-        /* Seleciona o conteúdo principal */
-
-        const conteudo = document.querySelector("main");
-
-        if (!conteudo) return;
-
-
-        /* Pega somente o texto */
-
-        const texto = conteudo.innerText;
-
-
-        /* Cria a leitura */
-
-        const leitura = new SpeechSynthesisUtterance(texto);
-
-
-        /* Português do Brasil */
-
-        leitura.lang = "pt-BR";
-
-
-        /* Velocidade */
-
-        leitura.rate = 0.9;
-
-
-        /* Inicia */
-
-        speechSynthesis.speak(leitura);
+        painelAcessibilidade.setAttribute(
+            "aria-hidden",
+            !aberto
+        );
 
     });
 
