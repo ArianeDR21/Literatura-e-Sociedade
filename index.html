@@ -23,40 +23,71 @@
 <script src="script.js"></script>
 
 <body>
-    <!-- PAINEL DE ACESSIBILIDADE -->
+   <!-- BOTÃO DE ACESSIBILIDADE -->
 
-<div class="acessibilidade">
+<button
+    class="botao-acessibilidade"
+    id="botao-acessibilidade"
+    type="button"
+    aria-label="Abrir opções de acessibilidade"
+    aria-expanded="false"
+    title="Acessibilidade">
+
+    ♿
+
+</button>
+
+
+<!-- PAINEL DE ACESSIBILIDADE -->
+
+<div
+    class="painel-acessibilidade"
+    id="painel-acessibilidade"
+    aria-hidden="true">
+
+    <div class="titulo-acessibilidade">
+        <span>♿</span>
+        <strong>Acessibilidade</strong>
+    </div>
+
 
     <button
         id="btn-aumentar"
-        type="button"
-        aria-label="Aumentar tamanho do texto"
-        title="Aumentar texto">
-        A+
+        type="button">
+
+        <span>A+</span>
+        Aumentar texto
+
     </button>
+
 
     <button
         id="btn-diminuir"
-        type="button"
-        aria-label="Diminuir tamanho do texto"
-        title="Diminuir texto">
-        A-
+        type="button">
+
+        <span>A-</span>
+        Diminuir texto
+
     </button>
+
 
     <button
         id="btn-contraste"
-        type="button"
-        aria-label="Ativar alto contraste"
-        title="Alto contraste">
-        ◐
+        type="button">
+
+        <span>◐</span>
+        Alto contraste
+
     </button>
+
 
     <button
         id="btn-leitura"
-        type="button"
-        aria-label="Ler conteúdo da página"
-        title="Ler página em voz alta">
-        🔊
+        type="button">
+
+        <span>🔊</span>
+        Ler página
+
     </button>
 
 </div>
