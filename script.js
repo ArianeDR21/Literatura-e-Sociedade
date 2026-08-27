@@ -514,79 +514,58 @@ if (
 
 }
 /* =====================================================
-   BOTÃO — LER MAIS DAS ATIVIDADES
+   LER MAIS — ATIVIDADES
    ===================================================== */
 
-const botoesAtividade =
-    document.querySelectorAll(".abrir-atividade");
+const botoesLerMais = document.querySelectorAll(
+    ".abrir-atividade"
+);
 
-const modalAtividade =
-    document.getElementById("modal-atividade");
+const modalAtividade = document.getElementById(
+    "modal-atividade"
+);
 
-const tituloAtividade =
-    document.getElementById("7facesjulia.png");
+const tituloAtividade = document.getElementById(
+    "titulo-atividade"
+);
 
-const textoAtividade =
-    document.getElementById("texto-atividade");
+const textoAtividade = document.getElementById(
+    "texto-atividade"
+);
 
-const fecharAtividade =
-    document.getElementById("fechar-atividade");
-
-
-/* ABRIR */
-
-botoesAtividade.forEach(botao => {
-
-    botao.addEventListener("click", () => {
-
-        const titulo =
-            botao.getAttribute("data-titulo");
-
-        const texto =
-            botao.getAttribute("data-texto");
+const fecharAtividade = document.getElementById(
+    "fechar-atividade"
+);
 
 
-        tituloAtividade.textContent =
-            titulo;
+/* ABRIR MODAL */
 
-        textoAtividade.textContent =
-            texto;
+botoesLerMais.forEach(function(botao) {
 
+    botao.addEventListener("click", function() {
 
-        modalAtividade.classList.add(
-            "aberto"
-        );
+        const titulo = botao.dataset.titulo;
+        const texto = botao.dataset.texto;
 
+        tituloAtividade.textContent = titulo;
+        textoAtividade.textContent = texto;
 
-        modalAtividade.setAttribute(
-            "aria-hidden",
-            "false"
-        );
+        modalAtividade.classList.add("aberto");
 
     });
 
 });
 
 
-/* FECHAR NO X */
+/* FECHAR */
 
 if (fecharAtividade) {
 
-    fecharAtividade.addEventListener(
-        "click",
-        () => {
+    fecharAtividade.addEventListener("click", function() {
 
-            modalAtividade.classList.remove(
-                "aberto"
-            );
+        modalAtividade.classList.remove("aberto");
 
-            modalAtividade.setAttribute(
-                "aria-hidden",
-                "true"
-            );
-
-        }
-    );
+    });
 
 }
 
@@ -595,52 +574,30 @@ if (fecharAtividade) {
 
 if (modalAtividade) {
 
-    modalAtividade.addEventListener(
-        "click",
-        evento => {
+    modalAtividade.addEventListener("click", function(evento) {
 
-            if (
-                evento.target === modalAtividade
-            ) {
+        if (evento.target === modalAtividade) {
 
-                modalAtividade.classList.remove(
-                    "aberto"
-                );
-
-                modalAtividade.setAttribute(
-                    "aria-hidden",
-                    "true"
-                );
-
-            }
+            modalAtividade.classList.remove("aberto");
 
         }
-    );
+
+    });
 
 }
 
 
 /* FECHAR COM ESC */
 
-document.addEventListener(
-    "keydown",
-    evento => {
+document.addEventListener("keydown", function(evento) {
 
-        if (
-            evento.key === "Escape" &&
-            modalAtividade
-        ) {
+    if (
+        evento.key === "Escape" &&
+        modalAtividade
+    ) {
 
-            modalAtividade.classList.remove(
-                "aberto"
-            );
-
-            modalAtividade.setAttribute(
-                "aria-hidden",
-                "true"
-            );
-
-        }
+        modalAtividade.classList.remove("aberto");
 
     }
-);
+
+});
