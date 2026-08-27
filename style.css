@@ -2529,142 +2529,97 @@ body.alto-contraste .voz {
 
 }
 
+/* ==========================================
+   GALERIA
+========================================== */
 
-/* =====================================================
-   GALERIA DE PRODUÇÕES — versão única
-   ===================================================== */
+.galeria {
 
-.galeria-producoes {
+    background: var(--vinho-escuro);
 
-    max-width: 1200px;
-
-    margin: 60px auto;
-
-    padding: 40px 25px;
-
+    color: white;
 }
 
 
-.titulo-galeria {
+.galeria .etiqueta {
 
-    text-align: center;
-
-    margin-bottom: 35px;
-
+    color: #d8bd8a;
 }
 
 
-.titulo-galeria h2 {
-
-    font-size: 36px;
-
-    margin: 12px 0;
-
-    color: #4b2e1f;
-
-}
-
-
-.titulo-galeria p {
-
-    max-width: 700px;
-
-    margin: auto;
-
-    font-size: 17px;
-
-    line-height: 1.7;
-
-}
-
-
-/* =====================================================
-   GRID
-   ===================================================== */
-
-.grid-producoes {
+.galeria-grid {
 
     display: grid;
 
-    grid-template-columns:
-        repeat(3, 1fr);
+    grid-template-columns: 2fr 1fr 1fr;
 
-    gap: 25px;
+    grid-auto-rows: 250px;
 
+    gap: 12px;
 }
 
 
-/* =====================================================
-   CARD
-   ===================================================== */
+.foto {
 
-.card-producao {
-
-    background: #ffffff;
-
-    border-radius: 15px;
-
-    overflow: hidden;
-
-    box-shadow:
-        0 5px 18px rgba(0, 0, 0, 0.12);
-
-    transition: transform 0.25s ease,
-                box-shadow 0.25s ease;
-
-}
-
-
-.card-producao:hover {
-
-    transform: translateY(-5px);
-
-    box-shadow:
-        0 10px 25px rgba(0, 0, 0, 0.18);
-
-}
-
-
-/* =====================================================
-   IMAGEM
-   ===================================================== */
-
-.abrir-imagem {
-
-    display: block;
-
-    width: 100%;
-
-    padding: 0;
-
-    border: none;
-
-    background: none;
+    position: relative;
 
     cursor: pointer;
 
+    overflow: hidden;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #4b2a2f,
+            #251619
+        );
 }
 
 
-.abrir-imagem img {
+.foto-grande {
 
-    width: 100%;
-
-    height: 250px;
-
-    object-fit: cover;
-
-    display: block;
-
-    transition: transform 0.3s ease;
-
+    grid-row: span 2;
 }
 
 
-.abrir-imagem:hover img {
+.foto-overlay {
 
-    transform: scale(1.03);
+    position: absolute;
 
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: rgba(48,16,22,.7);
+
+    opacity: 0;
+
+    transition: var(--transicao);
+}
+
+
+.foto:hover .foto-overlay {
+
+    opacity: 1;
+}
+
+
+.foto-overlay span {
+
+    border: 1px solid #d8bd8a;
+
+    padding: 12px 20px;
+
+    text-transform: uppercase;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
 }
 
 
