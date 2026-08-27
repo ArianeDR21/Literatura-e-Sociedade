@@ -513,3 +513,134 @@ if (
     );
 
 }
+/* =====================================================
+   BOTÃO — LER MAIS DAS ATIVIDADES
+   ===================================================== */
+
+const botoesAtividade =
+    document.querySelectorAll(".abrir-atividade");
+
+const modalAtividade =
+    document.getElementById("modal-atividade");
+
+const tituloAtividade =
+    document.getElementById("titulo-atividade");
+
+const textoAtividade =
+    document.getElementById("texto-atividade");
+
+const fecharAtividade =
+    document.getElementById("fechar-atividade");
+
+
+/* ABRIR */
+
+botoesAtividade.forEach(botao => {
+
+    botao.addEventListener("click", () => {
+
+        const titulo =
+            botao.getAttribute("data-titulo");
+
+        const texto =
+            botao.getAttribute("data-texto");
+
+
+        tituloAtividade.textContent =
+            titulo;
+
+        textoAtividade.textContent =
+            texto;
+
+
+        modalAtividade.classList.add(
+            "aberto"
+        );
+
+
+        modalAtividade.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+    });
+
+});
+
+
+/* FECHAR NO X */
+
+if (fecharAtividade) {
+
+    fecharAtividade.addEventListener(
+        "click",
+        () => {
+
+            modalAtividade.classList.remove(
+                "aberto"
+            );
+
+            modalAtividade.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+        }
+    );
+
+}
+
+
+/* FECHAR CLICANDO FORA */
+
+if (modalAtividade) {
+
+    modalAtividade.addEventListener(
+        "click",
+        evento => {
+
+            if (
+                evento.target === modalAtividade
+            ) {
+
+                modalAtividade.classList.remove(
+                    "aberto"
+                );
+
+                modalAtividade.setAttribute(
+                    "aria-hidden",
+                    "true"
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+/* FECHAR COM ESC */
+
+document.addEventListener(
+    "keydown",
+    evento => {
+
+        if (
+            evento.key === "Escape" &&
+            modalAtividade
+        ) {
+
+            modalAtividade.classList.remove(
+                "aberto"
+            );
+
+            modalAtividade.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+        }
+
+    }
+);
