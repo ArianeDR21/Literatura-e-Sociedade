@@ -21,58 +21,68 @@
 </head>
 
 <body>
-    <!-- BOTÃO DE ACESSIBILIDADE -->
+   <!-- =====================================================
+     BOTÃO DE ACESSIBILIDADE
+     ===================================================== -->
 
-    <button class="botao-acessibilidade" id="botao-acessibilidade" type="button"
-        aria-label="Abrir opções de acessibilidade" aria-expanded="false" title="Acessibilidade">
+<div class="acessibilidade">
+
+    <button
+        id="botao-acessibilidade"
+        class="botao-acessibilidade"
+        type="button"
+        aria-label="Abrir opções de acessibilidade"
+        aria-expanded="false"
+        aria-controls="painel-acessibilidade">
 
         ♿
 
     </button>
 
 
-    <!-- PAINEL DE ACESSIBILIDADE -->
+    <div
+        id="painel-acessibilidade"
+        class="painel-acessibilidade"
+        aria-hidden="true">
 
-    <div class="painel-acessibilidade" id="painel-acessibilidade" aria-hidden="true">
+        <button
+            id="btn-aumentar"
+            type="button">
 
-        <div class="titulo-acessibilidade">
-            <span>♿</span>
-            <strong>Acessibilidade</strong>
-        </div>
-
-
-        <button id="btn-aumentar" type="button">
-
-            <span>A+</span>
             Aumentar texto
 
         </button>
 
 
-        <button id="btn-diminuir" type="button">
+        <button
+            id="btn-diminuir"
+            type="button">
 
-            <span>A-</span>
             Diminuir texto
 
         </button>
 
 
-        <button id="btn-contraste" type="button">
+        <button
+            id="btn-contraste"
+            type="button">
 
-            <span>◐</span>
             Alto contraste
 
         </button>
 
 
-        <button id="btn-leitura" type="button">
+        <button
+            id="btn-leitura"
+            type="button">
 
-            <span>🔊</span>
-            Ler página
+            🔊 Ler página
 
         </button>
 
     </div>
+
+</div>
 
     <!-- =========================
          CABEÇALHO
