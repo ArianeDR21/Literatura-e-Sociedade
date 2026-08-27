@@ -2925,3 +2925,138 @@ body.alto-contraste .citacao {
     background: #111 !important;
     color: #fff !important;
 }
+/* =====================================================
+   MODAL — LER MAIS
+   ===================================================== */
+
+.modal-atividade {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    z-index: 100000;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+}
+
+
+.modal-atividade.aberto {
+
+    display: flex;
+
+}
+
+
+.conteudo-modal-atividade {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 650px;
+
+    background: #fffaf3;
+
+    padding: 40px;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.3);
+
+}
+
+
+.conteudo-modal-atividade h2 {
+
+    color: #4b2e1f;
+
+    font-family: Georgia, serif;
+
+    margin-top: 0;
+
+    margin-bottom: 20px;
+
+}
+
+
+.conteudo-modal-atividade p {
+
+    color: #444;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+}
+
+
+.fechar-atividade {
+
+    position: absolute;
+
+    top: 12px;
+
+    right: 15px;
+
+    width: 40px;
+
+    height: 40px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #4b2e1f;
+
+    color: white;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+}
+
+
+.fechar-atividade:hover {
+
+    transform: scale(1.05);
+
+}
+
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+    .conteudo-modal-atividade {
+
+        padding: 30px 20px;
+
+    }
+
+
+    .conteudo-modal-atividade h2 {
+
+        font-size: 23px;
+
+    }
+
+
+    .conteudo-modal-atividade p {
+
+        font-size: 15px;
+
+    }
+
+}
