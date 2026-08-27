@@ -1,119 +1,46 @@
-/* ==========================================
+/* =====================================================
+   LITERATURA E SOCIEDADE — JAVASCRIPT
+   ===================================================== */
+
+
+/* =====================================================
    MENU MOBILE
-========================================== */
+   ===================================================== */
 
 const botaoMenu = document.querySelector(".menu-mobile");
 const menu = document.querySelector(".menu");
 
-botaoMenu.addEventListener("click", () => {
+if (botaoMenu && menu) {
 
-    menu.classList.toggle("ativo");
+    botaoMenu.addEventListener("click", () => {
 
-});
-
-
-/* Fechar menu ao clicar em algum link */
-
-document.querySelectorAll(".menu a").forEach(link => {
-
-    link.addEventListener("click", () => {
-
-        menu.classList.remove("ativo");
+        menu.classList.toggle("ativo");
 
     });
 
-});
 
+    /* Fechar menu ao clicar em algum link */
 
-/* ==========================================
-   MODAL DA GALERIA
-========================================== */
+    document.querySelectorAll(".menu a").forEach(link => {
 
-const fotos = document.querySelectorAll(".foto");
-const modal = document.getElementById("modal");
-const imagemModal = document.getElementById("imagem-modal");
-const fecharModal = document.querySelector(".fechar-modal");
+        link.addEventListener("click", () => {
 
-
-fotos.forEach(foto => {
-
-    foto.addEventListener("click", () => {
-
-        const imagem = foto.getAttribute("data-imagem");
-
-        imagemModal.src = imagem;
-
-        modal.classList.add("ativo");
-
-    });
-
-});
-
-
-fecharModal.addEventListener("click", () => {
-
-    modal.classList.remove("ativo");
-
-});
-
-
-modal.addEventListener("click", (evento) => {
-
-    if (evento.target === modal) {
-
-        modal.classList.remove("ativo");
-
-    }
-
-});
-
-
-/* ==========================================
-   ANIMAÇÃO DE ENTRADA
-========================================== */
-
-const elementos = document.querySelectorAll(
-    ".card-objetivo, .atividade, .evento, .voz, .obra"
-);
-
-
-const observador = new IntersectionObserver(
-
-    (entradas) => {
-
-        entradas.forEach(entrada => {
-
-            if (entrada.isIntersecting) {
-
-                entrada.target.classList.add("aparecer");
-
-            }
+            menu.classList.remove("ativo");
 
         });
 
-    },
+    });
 
-    {
-        threshold: 0.15
-    }
-
-);
+}
 
 
-elementos.forEach(elemento => {
-
-    observador.observe(elemento);
-
-});
-
-
-/* ==========================================
-   SCROLL SUAVE PARA LINKS
-========================================== */
+/* =====================================================
+   SCROLL SUAVE
+   ===================================================== */
 
 document.querySelectorAll('a[href^="#"]').forEach(link => {
 
-    link.addEventListener("click", function(evento) {
+    link.addEventListener("click", function (evento) {
 
         evento.preventDefault();
 
@@ -133,8 +60,9 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 
 });
 
+
 /* =====================================================
-   ABRIR / FECHAR PAINEL DE ACESSIBILIDADE
+   ACESSIBILIDADE
    ===================================================== */
 
 const botaoAcessibilidade =
@@ -146,7 +74,7 @@ const painelAcessibilidade =
 
 if (botaoAcessibilidade && painelAcessibilidade) {
 
-    botaoAcessibilidade.addEventListener("click", function () {
+    botaoAcessibilidade.addEventListener("click", () => {
 
         const aberto =
             painelAcessibilidade.classList.toggle("aberto");
@@ -166,123 +94,403 @@ if (botaoAcessibilidade && painelAcessibilidade) {
     });
 
 }
+
+
 /* =====================================================
-   GALERIA DE PRODUÇÕES
+   AUMENTAR TEXTO
    ===================================================== */
+
+const btnAumentar =
+    document.getElementById("btn-aumentar");
+
+
+if (btnAumentar) {
+
+    btnAumentar.addEventListener("click", () => {
+
+        document.documentElement.style.fontSize = "18px";
+
+    });
+
+}
+
+
+/* =====================================================
+   DIMINUIR TEXTO
+   ===================================================== */
+
+const btnDiminuir =
+    document.getElementById("btn-diminuir");
+
+
+if (btnDiminuir) {
+
+    btnDiminuir.addEventListener("click", () => {
+
+        document.documentElement.style.fontSize = "14px";
+
+    });
+
+}
+
+
+/* =====================================================
+   ALTO CONTRASTE
+   ===================================================== */
+
+const btnContraste =
+    document.getElementById("btn-contraste");
+
+
+if (btnContraste) {
+
+    btnContraste.addEventListener("click", () => {
+
+        document.body.classList.toggle(
+            "alto-contraste"
+        );
+
+    });
+
+}
+
+
+/* =====================================================
+   LEITURA EM VOZ ALTA
+   ===================================================== */
+
+const btnLeitura =
+    document.getElementById("btn-leitura");
+
+
+if (btnLeitura) {
+
+    btnLeitura.addEventListener("click", () => {
+
+
+        /* Se já estiver lendo, interrompe */
+
+        if (window.speechSynthesis.speaking) {
+
+            window.speechSynthesis.cancel();
+
+            return;
+
+        }
+
+
+        /* Procura o conteúdo principal */
+
+        const conteudo =
+            document.querySelector("main");
+
+
+        if (!conteudo) {
+
+            return;
+
+        }
+
+
+        /* Texto que será lido */
+
+        const leitura =
+            new SpeechSynthesisUtterance(
+                conteudo.innerText
+            );
+
+
+        /* Português do Brasil */
+
+        leitura.lang = "pt-BR";
+
+
+        /* Velocidade da leitura */
+
+        leitura.rate = 0.9;
+
+
+        /* Tom da voz */
+
+        leitura.pitch = 1;
+
+
+        /* Inicia a leitura */
+
+        window.speechSynthesis.speak(leitura);
+
+    });
+
+}
+
+
+/* =====================================================
+   GALERIA DE IMAGENS
+   ===================================================== */
+
+const fotos =
+    document.querySelectorAll(".foto");
+
 
 const botoesImagem =
     document.querySelectorAll(".abrir-imagem");
 
+
 const modalImagem =
     document.getElementById("modal-imagem");
+
 
 const imagemAmpliada =
     document.getElementById("imagem-ampliada");
 
+
 const tituloImagem =
     document.getElementById("titulo-imagem");
+
 
 const fecharModal =
     document.getElementById("fechar-modal");
 
 
-if (
-    botoesImagem.length > 0 &&
-    modalImagem
-) {
 
-    botoesImagem.forEach(function (botao) {
+/* =====================================================
+   FUNÇÃO PARA ABRIR O MODAL
+   ===================================================== */
 
-        botao.addEventListener("click", function () {
-
-            const imagem =
-                botao.getAttribute("data-imagem");
-
-            const titulo =
-                botao.getAttribute("data-titulo");
+function abrirModal(imagem, titulo = "") {
 
 
-            imagemAmpliada.src = imagem;
+    if (!modalImagem || !imagemAmpliada) {
 
-            imagemAmpliada.alt = titulo;
+        return;
 
-            tituloImagem.textContent = titulo;
-
-
-            modalImagem.classList.add("aberto");
-
-            modalImagem.setAttribute(
-                "aria-hidden",
-                "false"
-            );
-
-        });
-
-    });
+    }
 
 
-    /* FECHAR */
+    imagemAmpliada.src = imagem;
 
-    fecharModal.addEventListener(
-        "click",
-        function () {
 
-            modalImagem.classList.remove("aberto");
+    imagemAmpliada.alt =
+        titulo || "Imagem ampliada";
 
-            modalImagem.setAttribute(
-                "aria-hidden",
-                "true"
-            );
 
-        }
+    if (tituloImagem) {
+
+        tituloImagem.textContent = titulo;
+
+    }
+
+
+    modalImagem.classList.add("aberto");
+
+
+    modalImagem.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+}
+
+
+/* =====================================================
+   FUNÇÃO PARA FECHAR O MODAL
+   ===================================================== */
+
+function fecharJanelaImagem() {
+
+
+    if (!modalImagem) {
+
+        return;
+
+    }
+
+
+    modalImagem.classList.remove(
+        "aberto"
     );
 
 
-    /* FECHAR CLICANDO FORA */
+    modalImagem.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+
+    if (imagemAmpliada) {
+
+        imagemAmpliada.src = "";
+
+    }
+
+}
+
+
+/* =====================================================
+   GALERIA EXISTENTE
+   ===================================================== */
+
+fotos.forEach(foto => {
+
+    foto.addEventListener("click", () => {
+
+
+        const imagem =
+            foto.getAttribute("data-imagem");
+
+
+        if (imagem) {
+
+            abrirModal(
+                imagem,
+                "Registro da atividade"
+            );
+
+        }
+
+    });
+
+});
+
+
+/* =====================================================
+   PRODUÇÕES DOS ESTUDANTES
+   ===================================================== */
+
+botoesImagem.forEach(botao => {
+
+    botao.addEventListener("click", () => {
+
+
+        const imagem =
+            botao.getAttribute("data-imagem");
+
+
+        const titulo =
+            botao.getAttribute("data-titulo") ||
+            "Produção dos estudantes";
+
+
+        if (imagem) {
+
+            abrirModal(
+                imagem,
+                titulo
+            );
+
+        }
+
+    });
+
+});
+
+
+/* =====================================================
+   BOTÃO FECHAR
+   ===================================================== */
+
+if (fecharModal) {
+
+    fecharModal.addEventListener(
+        "click",
+        fecharJanelaImagem
+    );
+
+}
+
+
+/* =====================================================
+   FECHAR CLICANDO FORA DA IMAGEM
+   ===================================================== */
+
+if (modalImagem) {
 
     modalImagem.addEventListener(
         "click",
-        function (evento) {
+        evento => {
 
             if (
                 evento.target === modalImagem
             ) {
 
-                modalImagem.classList.remove(
-                    "aberto"
-                );
-
-                modalImagem.setAttribute(
-                    "aria-hidden",
-                    "true"
-                );
+                fecharJanelaImagem();
 
             }
 
         }
     );
 
+}
 
-    /* FECHAR COM ESC */
 
-    document.addEventListener(
-        "keydown",
-        function (evento) {
+/* =====================================================
+   FECHAR COM ESC
+   ===================================================== */
 
-            if (
-                evento.key === "Escape"
-            ) {
+document.addEventListener(
+    "keydown",
+    evento => {
 
-                modalImagem.classList.remove(
-                    "aberto"
+        if (evento.key === "Escape") {
+
+            fecharJanelaImagem();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   ANIMAÇÃO DE ENTRADA
+   ===================================================== */
+
+const elementos =
+    document.querySelectorAll(
+        ".card-objetivo, .atividade, .evento, .voz, .obra"
+    );
+
+
+if (
+    "IntersectionObserver" in window
+) {
+
+    const observador =
+        new IntersectionObserver(
+
+            (entradas) => {
+
+                entradas.forEach(
+                    entrada => {
+
+                        if (
+                            entrada.isIntersecting
+                        ) {
+
+                            entrada.target.classList.add(
+                                "aparecer"
+                            );
+
+                        }
+
+                    }
                 );
 
-                modalImagem.setAttribute(
-                    "aria-hidden",
-                    "true"
-                );
+            },
 
+            {
+                threshold: 0.15
             }
+
+        );
+
+
+    elementos.forEach(
+        elemento => {
+
+            observador.observe(
+                elemento
+            );
 
         }
     );
