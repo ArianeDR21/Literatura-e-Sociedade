@@ -72,26 +72,36 @@ const painelAcessibilidade =
     document.getElementById("painel-acessibilidade");
 
 
-if (botaoAcessibilidade && painelAcessibilidade) {
+/* ABRIR E FECHAR PAINEL */
 
-    botaoAcessibilidade.addEventListener("click", () => {
+if (
+    botaoAcessibilidade &&
+    painelAcessibilidade
+) {
 
-        const aberto =
-            painelAcessibilidade.classList.toggle("aberto");
+    botaoAcessibilidade.addEventListener(
+        "click",
+        () => {
+
+            const aberto =
+                painelAcessibilidade.classList.toggle(
+                    "aberto"
+                );
 
 
-        botaoAcessibilidade.setAttribute(
-            "aria-expanded",
-            aberto
-        );
+            botaoAcessibilidade.setAttribute(
+                "aria-expanded",
+                aberto
+            );
 
 
-        painelAcessibilidade.setAttribute(
-            "aria-hidden",
-            !aberto
-        );
+            painelAcessibilidade.setAttribute(
+                "aria-hidden",
+                !aberto
+            );
 
-    });
+        }
+    );
 
 }
 
@@ -106,11 +116,15 @@ const btnAumentar =
 
 if (btnAumentar) {
 
-    btnAumentar.addEventListener("click", () => {
+    btnAumentar.addEventListener(
+        "click",
+        () => {
 
-        document.documentElement.style.fontSize = "18px";
+            document.documentElement.style.fontSize =
+                "18px";
 
-    });
+        }
+    );
 
 }
 
@@ -125,11 +139,15 @@ const btnDiminuir =
 
 if (btnDiminuir) {
 
-    btnDiminuir.addEventListener("click", () => {
+    btnDiminuir.addEventListener(
+        "click",
+        () => {
 
-        document.documentElement.style.fontSize = "14px";
+            document.documentElement.style.fontSize =
+                "14px";
 
-    });
+        }
+    );
 
 }
 
@@ -144,13 +162,16 @@ const btnContraste =
 
 if (btnContraste) {
 
-    btnContraste.addEventListener("click", () => {
+    btnContraste.addEventListener(
+        "click",
+        () => {
 
-        document.body.classList.toggle(
-            "alto-contraste"
-        );
+            document.body.classList.toggle(
+                "alto-contraste"
+            );
 
-    });
+        }
+    );
 
 }
 
@@ -165,61 +186,57 @@ const btnLeitura =
 
 if (btnLeitura) {
 
-    btnLeitura.addEventListener("click", () => {
+    btnLeitura.addEventListener(
+        "click",
+        () => {
+
+            /* Se já estiver lendo, para */
+
+            if (
+                window.speechSynthesis.speaking
+            ) {
+
+                window.speechSynthesis.cancel();
+
+                return;
+
+            }
 
 
-        /* Se já estiver lendo, interrompe */
+            /* Conteúdo principal */
 
-        if (window.speechSynthesis.speaking) {
-
-            window.speechSynthesis.cancel();
-
-            return;
-
-        }
+            const conteudo =
+                document.querySelector("main");
 
 
-        /* Procura o conteúdo principal */
+            if (!conteudo) {
 
-        const conteudo =
-            document.querySelector("main");
+                return;
 
-
-        if (!conteudo) {
-
-            return;
-
-        }
+            }
 
 
-        /* Texto que será lido */
+            /* Cria a leitura */
 
-        const leitura =
-            new SpeechSynthesisUtterance(
-                conteudo.innerText
+            const leitura =
+                new SpeechSynthesisUtterance(
+                    conteudo.innerText
+                );
+
+
+            leitura.lang = "pt-BR";
+
+            leitura.rate = 0.9;
+
+            leitura.pitch = 1;
+
+
+            window.speechSynthesis.speak(
+                leitura
             );
 
-
-        /* Português do Brasil */
-
-        leitura.lang = "pt-BR";
-
-
-        /* Velocidade da leitura */
-
-        leitura.rate = 0.9;
-
-
-        /* Tom da voz */
-
-        leitura.pitch = 1;
-
-
-        /* Inicia a leitura */
-
-        window.speechSynthesis.speak(leitura);
-
-    });
+        }
+    );
 
 }
 
