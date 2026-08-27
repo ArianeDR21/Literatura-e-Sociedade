@@ -524,7 +524,7 @@ const modalAtividade =
     document.getElementById("modal-atividade");
 
 const tituloAtividade =
-    document.getElementById("titulo-atividade");
+    document.getElementById("7facesjulia.png");
 
 const textoAtividade =
     document.getElementById("texto-atividade");
