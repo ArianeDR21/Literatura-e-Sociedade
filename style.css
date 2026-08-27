@@ -2344,156 +2344,190 @@ h3, h4 {
 
 
 /* =====================================================
-   ACESSIBILIDADE — versão única
+   ACESSIBILIDADE
    ===================================================== */
 
-button.botao-acessibilidade {
-    position: fixed !important;
-
-    right: 20px !important;
-    top: 50% !important;
-
-    transform: translateY(-50%) !important;
-
-    width: 55px !important;
-    height: 55px !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-
-    border-radius: 50% !important;
-
-    border: 3px solid #ffffff !important;
-
-    background: #4b2e1f !important;
-
-    color: #ffffff !important;
-
-    font-size: 26px !important;
-
-    cursor: pointer !important;
-
-    z-index: 999999 !important;
-
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.30) !important;
-
-    padding: 0 !important;
-
-    margin: 0 !important;
+.acessibilidade {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 99999;
 }
 
 
-/* Efeito quando passa o mouse */
+/* BOTÃO */
 
-button.botao-acessibilidade:hover {
-    transform: translateY(-50%) scale(1.08) !important;
-}
-
-
-/* Foco pelo teclado */
-
-button.botao-acessibilidade:focus {
-    outline: 3px solid #0066cc !important;
-    outline-offset: 3px !important;
-}
-
-
-/* =====================================================
-   PAINEL
-   ===================================================== */
-
-.painel-acessibilidade {
-    position: fixed !important;
-
-    right: 90px !important;
-    top: 50% !important;
-
-    transform: translateY(-50%) !important;
-
-    width: 230px !important;
-
-    padding: 18px !important;
-
-    background: #ffffff !important;
-
-    border-radius: 15px !important;
-
-    box-shadow: 0 5px 25px rgba(0,0,0,0.30) !important;
-
-    z-index: 999998 !important;
-
-    display: none;
-}
-
-
-.painel-acessibilidade.aberto {
-    display: block !important;
-}
-
-
-.titulo-acessibilidade {
-    color: #4b2e1f !important;
-
-    font-weight: bold;
-
-    padding-bottom: 12px;
-
-    margin-bottom: 10px;
-
-    border-bottom: 1px solid #ddd;
-}
-
-
-.painel-acessibilidade button {
-    width: 100%;
-
-    padding: 12px;
-
-    margin: 5px 0;
+.botao-acessibilidade {
+    width: 50px;
+    height: 50px;
 
     border: none;
+    border-radius: 50%;
 
-    border-radius: 8px;
+    background: #4b2e1f;
+    color: white;
 
-    background: #f0e8df;
-
-    color: #3d2a20;
+    font-size: 24px;
 
     cursor: pointer;
 
-    text-align: left;
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.25);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.botao-acessibilidade:hover {
+    transform: scale(1.08);
+}
+
+
+/* PAINEL */
+
+.painel-acessibilidade {
+    position: absolute;
+
+    right: 0;
+    bottom: 60px;
+
+    width: 190px;
+
+    padding: 12px;
+
+    background: white;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.2);
+
+    display: none;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+/* PAINEL ABERTO */
+
+.painel-acessibilidade.aberto {
+    display: flex;
+}
+
+
+/* BOTÕES DO PAINEL */
+
+.painel-acessibilidade button {
+
+    width: 100%;
+
+    padding: 10px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #f1e6d8;
+
+    color: #4b2e1f;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease;
+}
+
+
+.painel-acessibilidade button:hover {
+
+    background: #dfc7ad;
+
 }
 
 
 /* =====================================================
-   CELULAR
+   ALTO CONTRASTE
    ===================================================== */
 
-@media (max-width: 768px) {
+body.alto-contraste {
 
-    button.botao-acessibilidade {
+    background: #000 !important;
 
-        right: 10px !important;
+    color: #fff !important;
 
-        width: 48px !important;
-        height: 48px !important;
+}
 
-        font-size: 22px !important;
+
+body.alto-contraste p,
+body.alto-contraste h1,
+body.alto-contraste h2,
+body.alto-contraste h3,
+body.alto-contraste h4,
+body.alto-contraste li,
+body.alto-contraste a {
+
+    color: #fff !important;
+
+}
+
+
+body.alto-contraste section,
+body.alto-contraste article,
+body.alto-contraste .card-objetivo,
+body.alto-contraste .atividade,
+body.alto-contraste .obra,
+body.alto-contraste .voz {
+
+    background: #111 !important;
+
+    color: #fff !important;
+
+}
+
+
+/* =====================================================
+   ACESSIBILIDADE NO CELULAR
+   ===================================================== */
+
+@media (max-width: 600px) {
+
+    .acessibilidade {
+
+        right: 15px;
+        bottom: 15px;
 
     }
+
+
+    .botao-acessibilidade {
+
+        width: 46px;
+        height: 46px;
+
+        font-size: 21px;
+
+    }
+
 
     .painel-acessibilidade {
 
-        right: 65px !important;
+        width: 175px;
 
-        width: 210px !important;
+        bottom: 55px;
 
     }
 
 }
-
-/* =====================================================
 
 
 /* =====================================================
