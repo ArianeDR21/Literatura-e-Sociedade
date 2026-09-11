@@ -1147,89 +1147,85 @@ h3, h4 {
     cursor: pointer;
 }
 
-
 /* ==========================================
    GALERIA
 ========================================== */
 
 .galeria {
-
     background: var(--vinho-escuro);
-
     color: white;
 }
 
-
 .galeria .etiqueta {
-
     color: #d8bd8a;
 }
 
 
+/* GRID DA GALERIA */
+
 .galeria-grid {
-
     display: grid;
-
     grid-template-columns: 2fr 1fr 1fr;
-
-    grid-auto-rows: 250px;
-
+    grid-template-rows: 250px 250px;
     gap: 12px;
 }
 
 
+/* CADA FOTO */
+
 .foto {
-
     position: relative;
-
-    cursor: pointer;
-
+    width: 100%;
+    height: 100%;
     overflow: hidden;
-
-    background:
-
-        linear-gradient(
-            135deg,
-            #4b2a2f,
-            #251619
-        );
+    cursor: pointer;
+    background: #4b2a2f;
 }
 
 
-.foto-grande {
+/* IMAGEM */
 
+.foto img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+
+/* FOTO GRANDE */
+
+.foto-grande {
     grid-row: span 2;
 }
 
 
+/* EFEITO AO PASSAR O MOUSE */
+
 .foto-overlay {
-
     position: absolute;
-
     inset: 0;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
-    background: rgba(48,16,22,.7);
+    background: rgba(48, 16, 22, 0.7);
 
     opacity: 0;
 
-    transition: var(--transicao);
+    transition: 0.3s ease;
 }
 
-
 .foto:hover .foto-overlay {
-
     opacity: 1;
 }
 
 
-.foto-overlay span {
+/* TEXTO VER IMAGEM */
 
+.foto-overlay span {
     border: 1px solid #d8bd8a;
 
     padding: 12px 20px;
@@ -1240,40 +1236,26 @@ h3, h4 {
 
     letter-spacing: 2px;
 }
+
+
 /* ==========================================
-   IMAGENS DA GALERIA
+   CELULAR
 ========================================== */
-
-.galeria-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.foto {
-    position: relative;
-    width: 100%;
-    height: 250px;
-    overflow: hidden;
-    border-radius: 12px;
-    cursor: pointer;
-}
-
-.foto img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
 
 @media (max-width: 700px) {
 
     .galeria-grid {
         grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 12px;
     }
 
     .foto {
         height: 250px;
+    }
+
+    .foto-grande {
+        grid-row: span 1;
     }
 
 }
