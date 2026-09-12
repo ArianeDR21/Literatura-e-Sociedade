@@ -1147,103 +1147,7 @@ h3, h4 {
     cursor: pointer;
 }
 
-/* ==========================================
-   GALERIA
-========================================== */
 
-.galeria {
-    background: var(--vinho-escuro);
-    color: white;
-}
-
-.galeria .etiqueta {
-    color: #d8bd8a;
-}
-
-
-/* GRID */
-
-.galeria-grid {
-    display: grid;
-
-    grid-template-columns: 2fr 1fr 1fr;
-
-    grid-auto-rows: 250px;
-
-    gap: 12px;
-}
-
-
-/* FOTO */
-
-.foto {
-    position: relative;
-
-    width: 100%;
-    height: 100%;
-
-    overflow: hidden;
-
-    cursor: pointer;
-
-    background: #4b2a2f;
-}
-
-
-/* IMAGEM */
-
-.foto img {
-    display: block;
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-}
-
-
-/* FOTO GRANDE */
-
-.foto-grande {
-    grid-row: span 2;
-}
-
-
-/* SOBREPOSIÇÃO */
-
-.foto-overlay {
-    position: absolute;
-
-    inset: 0;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    background: rgba(48, 16, 22, 0.7);
-
-    opacity: 0;
-
-    transition: 0.3s ease;
-}
-
-.foto:hover .foto-overlay {
-    opacity: 1;
-}
-
-
-.foto-overlay span {
-    border: 1px solid #d8bd8a;
-
-    padding: 12px 20px;
-
-    text-transform: uppercase;
-
-    font-size: 9px;
-
-    letter-spacing: 2px;
-}
 
 
 /* ==========================================
@@ -2554,98 +2458,6 @@ body.alto-contraste .voz {
 
 }
 
-/* ==========================================
-   GALERIA
-========================================== */
-
-.galeria {
-
-    background: var(--vinho-escuro);
-
-    color: white;
-}
-
-
-.galeria .etiqueta {
-
-    color: #d8bd8a;
-}
-
-
-.galeria-grid {
-
-    display: grid;
-
-    grid-template-columns: 2fr 1fr 1fr;
-
-    grid-auto-rows: 250px;
-
-    gap: 12px;
-}
-
-
-.foto {
-
-    position: relative;
-
-    cursor: pointer;
-
-    overflow: hidden;
-
-    background:
-
-        linear-gradient(
-            135deg,
-            #4b2a2f,
-            #251619
-        );
-}
-
-
-.foto-grande {
-
-    grid-row: span 2;
-}
-
-
-.foto-overlay {
-
-    position: absolute;
-
-    inset: 0;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    background: rgba(48,16,22,.7);
-
-    opacity: 0;
-
-    transition: var(--transicao);
-}
-
-
-.foto:hover .foto-overlay {
-
-    opacity: 1;
-}
-
-
-.foto-overlay span {
-
-    border: 1px solid #d8bd8a;
-
-    padding: 12px 20px;
-
-    text-transform: uppercase;
-
-    font-size: 9px;
-
-    letter-spacing: 2px;
-}
 
 
 /* =====================================================
@@ -3036,6 +2848,225 @@ body.alto-contraste .citacao {
     .conteudo-modal-atividade p {
 
         font-size: 15px;
+
+    }
+
+}
+
+/* =====================================================
+   GALERIA
+===================================================== */
+
+.galeria {
+    background: var(--vinho-escuro);
+    color: white;
+}
+
+.galeria .etiqueta {
+    color: #d8bd8a;
+}
+
+
+/* =====================================================
+   GRADE DA GALERIA
+===================================================== */
+
+.galeria-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+
+    width: 100%;
+
+}
+
+
+/* =====================================================
+   CADA FOTO
+===================================================== */
+
+.foto {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 260px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    background: #251619;
+
+    border-radius: 6px;
+
+}
+
+
+/* =====================================================
+   IMAGEM
+===================================================== */
+
+.foto img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: contain;
+
+    padding: 8px;
+
+    transition: transform 0.4s ease;
+
+}
+
+
+/* Efeito suave ao passar o mouse */
+
+.foto:hover img {
+
+    transform: scale(1.03);
+
+}
+
+
+/* =====================================================
+   SOBREPOSIÇÃO
+===================================================== */
+
+.foto-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: rgba(48, 16, 22, 0.70);
+
+    opacity: 0;
+
+    transition: opacity 0.3s ease;
+
+}
+
+
+/* Mostrar sobreposição */
+
+.foto:hover .foto-overlay {
+
+    opacity: 1;
+
+}
+
+
+/* Texto da sobreposição */
+
+.foto-overlay span {
+
+    border: 1px solid #d8bd8a;
+
+    padding: 12px 20px;
+
+    color: white;
+
+    text-transform: uppercase;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =====================================================
+   TABLETS
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .galeria-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 15px;
+
+    }
+
+    .foto {
+
+        height: 240px;
+
+    }
+
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .galeria-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+
+    }
+
+
+    .foto {
+
+        height: 260px;
+
+        width: 100%;
+
+    }
+
+
+    .foto img {
+
+        padding: 6px;
+
+        object-fit: contain;
+
+    }
+
+
+    .foto-overlay {
+
+        opacity: 1;
+
+        background: linear-gradient(
+            transparent,
+            rgba(48, 16, 22, 0.55)
+        );
+
+        align-items: flex-end;
+
+        padding-bottom: 15px;
+
+    }
+
+
+    .foto-overlay span {
+
+        padding: 8px 15px;
+
+        font-size: 8px;
 
     }
 
