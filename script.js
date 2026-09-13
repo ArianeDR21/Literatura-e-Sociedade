@@ -601,3 +601,138 @@ document.addEventListener("keydown", function(evento) {
     }
 
 });
+
+```javascript
+/* ==========================================
+   PRODUÇÕES DOS ESTUDANTES
+========================================== */
+
+const producoes = [
+
+    {
+        titulo: "Poema — Saudade",
+
+        texto: `
+            Vô, ainda não acredito que você se foi,
+            parece que tudo mudou depois.
+            Sinto falta de te ver sorrir,
+            e das histórias que gostava de repetir.
+
+            Queria poder te abraçar,
+            e ter mais tempo para conversar.
+            A saudade vem sem avisar,
+            e faz meu coração apertar.
+
+            Mas guardo você na lembrança,
+            com carinho e esperança.
+            Você sempre estará comigo,
+            meu vô, meu eterno amigo.
+        `,
+
+        autor: "— Naélen Carvalho Betim"
+    },
+
+    {
+        titulo: "Produção 2",
+
+        texto: `
+            Aqui entrará a segunda produção.
+
+            Você pode escrever o texto normalmente,
+            mantendo as quebras de linha e os parágrafos.
+
+            Quando clicar em “Próxima”,
+            esta produção será exibida.
+        `,
+
+        autor: "— Nome do estudante"
+    },
+
+    {
+        titulo: "Produção 3",
+
+        texto: `
+            Aqui entrará a terceira produção.
+
+            Você pode colocar um poema,
+            uma memória, um relato ou qualquer
+            outra produção realizada pelos estudantes.
+        `,
+
+        autor: "— Nome do estudante"
+    }
+
+];
+
+
+let producaoAtual = 0;
+
+
+/* ELEMENTOS DA PÁGINA */
+
+const tituloProducao = document.getElementById("titulo-producao");
+const textoProducao = document.getElementById("texto-producao");
+const autorProducao = document.getElementById("autor-producao");
+
+const botaoAnterior = document.getElementById("anterior-producao");
+const botaoProxima = document.getElementById("proxima-producao");
+
+const bolinhas = document.querySelectorAll("#bolinhas-producao span");
+
+
+/* MOSTRAR PRODUÇÃO */
+
+function mostrarProducao(indice) {
+
+    const producao = producoes[indice];
+
+    tituloProducao.textContent = producao.titulo;
+
+    textoProducao.textContent = producao.texto.trim();
+
+    autorProducao.textContent = producao.autor;
+
+
+    /* Atualiza as bolinhas */
+
+    bolinhas.forEach((bolinha, index) => {
+
+        bolinha.classList.toggle(
+            "ativa",
+            index === indice
+        );
+
+    });
+
+}
+
+
+/* BOTÃO PRÓXIMA */
+
+botaoProxima.addEventListener("click", function () {
+
+    producaoAtual++;
+
+    if (producaoAtual >= producoes.length) {
+        producaoAtual = 0;
+    }
+
+    mostrarProducao(producaoAtual);
+
+});
+
+
+/* BOTÃO ANTERIOR */
+
+botaoAnterior.addEventListener("click", function () {
+
+    producaoAtual--;
+
+    if (producaoAtual < 0) {
+        producaoAtual = producoes.length - 1;
+    }
+
+    mostrarProducao(producaoAtual);
+
+});
+```

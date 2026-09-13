@@ -3071,3 +3071,72 @@ body.alto-contraste .citacao {
     }
 
 }
+
+```css
+/* ==========================================
+   TEXTO DAS PRODUÇÕES
+========================================== */
+
+.texto-producao {
+    white-space: pre-line;
+    line-height: 1.9;
+    font-size: 1.05rem;
+}
+
+
+/* TÍTULO DA PRODUÇÃO */
+
+#titulo-producao {
+    margin-bottom: 25px;
+}
+
+
+/* AUTOR */
+
+.autor-producao {
+    margin-top: 30px;
+}
+
+
+/* ==========================================
+   BOTÕES DAS PRODUÇÕES
+========================================== */
+
+.producao-botoes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 35px;
+}
+
+.producao-botoes button {
+    cursor: pointer;
+}
+
+
+/* ==========================================
+   BOLINHAS
+========================================== */
+
+.bolinhas {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.bolinhas span {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #c8c8c8;
+    display: block;
+    transition: 0.3s;
+}
+
+.bolinhas span.ativa {
+    width: 11px;
+    height: 11px;
+    background: #8b5e3c;
+}
+```
