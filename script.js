@@ -743,3 +743,73 @@ botaoAnterior.addEventListener("click", function () {
 
 });
 ```
+/* ==========================================
+   SLIDES DAS PRODUÇÕES
+========================================== */
+
+const producoes = document.querySelectorAll(".producao-item");
+
+const botaoProxima = document.getElementById("proxima-producao");
+const botaoAnterior = document.getElementById("anterior-producao");
+
+const bolinhas = document.querySelectorAll("#bolinhas-producao span");
+
+let producaoAtual = 0;
+
+
+/* MOSTRAR PRODUÇÃO */
+
+function mostrarProducao(indice) {
+
+    producoes.forEach((producao, index) => {
+
+        producao.classList.toggle(
+            "ativa",
+            index === indice
+        );
+
+    });
+
+
+    /* Atualiza as bolinhas */
+
+    bolinhas.forEach((bolinha, index) => {
+
+        bolinha.classList.toggle(
+            "ativa",
+            index === indice
+        );
+
+    });
+
+}
+
+
+/* PRÓXIMA */
+
+botaoProxima.addEventListener("click", function () {
+
+    producaoAtual++;
+
+    if (producaoAtual >= producoes.length) {
+        producaoAtual = 0;
+    }
+
+    mostrarProducao(producaoAtual);
+
+});
+
+
+/* ANTERIOR */
+
+botaoAnterior.addEventListener("click", function () {
+
+    producaoAtual--;
+
+    if (producaoAtual < 0) {
+        producaoAtual = producoes.length - 1;
+    }
+
+    mostrarProducao(producaoAtual);
+
+});
