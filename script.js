@@ -636,13 +636,20 @@ const producoes = [
         titulo: "Produção 2",
 
         texto: `
-            Aqui entrará a segunda produção.
+           Quando a tristeza chega devagar,
+                a esperança vem para me abraçar.
+                Mesmo na noite, há uma luz,
+                que nos guia e nos conduz.
 
-            Você pode escrever o texto normalmente,
-            mantendo as quebras de linha e os parágrafos.
+                Se o caminho parece difícil,
+                a resiliência vem me dizer:
+                "Levanta agora, não pare de crer",
+                um propósito que me faz continuar.
 
-            Quando clicar em “Próxima”,
-            esta produção será exibida.
+                Mesmo quando tudo parece terminar,
+                sempre há há um motivo para recomeçar.
+                Pois quem espera nunca deixa de acreditar,
+                e sempre encontrará um jeito de sonhar.
         `,
 
         autor: "— Nome do estudante"
