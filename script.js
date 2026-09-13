@@ -633,7 +633,7 @@ const producoes = [
     },
 
     {
-        titulo: "Produção 2",
+        titulo: "Poema - Sonho",
 
         texto: `
            Quando a tristeza chega devagar,
@@ -652,7 +652,7 @@ const producoes = [
                 e sempre encontrará um jeito de sonhar.
         `,
 
-        autor: "— Nome do estudante"
+        autor: "— Yasmin"
     },
 
     {
