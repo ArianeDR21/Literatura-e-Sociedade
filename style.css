@@ -1175,119 +1175,46 @@ h3, h4 {
    PRODUÇÕES
 ========================================== */
 
-.producoes {
-
-    background: var(--creme);
+/* Esconde todas as páginas por padrão */
+.page {
+  display: none;
+  text-align: center;
 }
 
-
-.producao-destaque {
-
-    max-width: 850px;
-
-    margin: auto;
-
-    padding: 70px;
-
-    background: var(--papel);
-
-    text-align: center;
-
-    border-top: 3px solid var(--dourado);
+/* Mostra apenas a página com a classe active */
+.page.active {
+  display: block;
 }
 
-
-.aspas-grande {
-
-    font-family: 'Cormorant Garamond', serif;
-
-    color: var(--dourado);
-
-    font-size: 90px;
-
-    line-height: .5;
+/* Estilo básico dos botões para tirar o visual padrão de formulário */
+.nav-btn {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  letter-spacing: 1px;
 }
 
-
-.texto-producao {
-
-    font-family: 'Cormorant Garamond', serif;
-
-    font-size: 34px;
-
-    font-style: italic;
-
-    margin: 35px 0;
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
 }
 
-
-.autor-producao {
-
-    font-size: 11px;
-
-    text-transform: uppercase;
-
-    letter-spacing: 2px;
-
-    color: var(--cinza);
+/* Estilo das bolinhas indicadoras (opcional) */
+.dot {
+  height: 8px;
+  width: 8px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 4px;
 }
 
-
-.producao-botoes {
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    gap: 40px;
-
-    margin-top: 30px;
-}
-
-
-.producao-botoes button {
-
-    border: none;
-
-    background: transparent;
-
-    cursor: pointer;
-
-    color: var(--vinho);
-
-    font-size: 11px;
-
-    text-transform: uppercase;
-
-    letter-spacing: 1px;
-}
-
-
-.bolinhas {
-
-    display: flex;
-
-    gap: 8px;
-}
-
-
-.bolinhas span {
-
-    width: 7px;
-
-    height: 7px;
-
-    border-radius: 50%;
-
-    background: #b9afa4;
-}
-
-
-.bolinhas .ativa {
-
-    background: var(--vinho);
+.dot.active {
+  background-color: #717171;
 }
 
 
