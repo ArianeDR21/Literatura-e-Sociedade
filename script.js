@@ -607,39 +607,69 @@ document.addEventListener("keydown", function(evento) {
    SLIDES DAS PRODUÇÕES
 ========================================== */
 
-const pages = document.querySelectorAll('.page');
-const dots = document.querySelectorAll('.dot');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
+const producoes = document.querySelectorAll(".producao-item");
 
-let currentPage = 0;
+const botaoProxima = document.getElementById("proxima-producao");
+const botaoAnterior = document.getElementById("anterior-producao");
 
-function updateCarousel(index) {
-  // Remove a classe active de todas as páginas e bolinhas
-  pages.forEach(page => page.classList.remove('active'));
-  dots.forEach(dot => dot.classList.remove('active'));
+const bolinhas = document.querySelectorAll("#bolinhas-producao span");
 
-  // Adiciona a classe active na página e bolinha correspondente
-  pages[index].classList.add('active');
-  if (dots[index]) dots[index].classList.add('active');
+let producaoAtual = 0;
+
+
+/* MOSTRAR PRODUÇÃO */
+
+function mostrarProducao(indice) {
+
+    producoes.forEach((producao, index) => {
+
+        producao.classList.toggle(
+            "ativa",
+            index === indice
+        );
+
+    });
+
+
+    /* Atualiza as bolinhas */
+
+    bolinhas.forEach((bolinha, index) => {
+
+        bolinha.classList.toggle(
+            "ativa",
+            index === indice
+        );
+
+    });
+
 }
 
-// Evento do botão Próximo
-nextBtn.addEventListener('click', () => {
-  if (currentPage < pages.length - 1) {
-    currentPage++;
-  } else {
-    currentPage = 0; // Volta para o início se chegar ao fim (opcional)
-  }
-  updateCarousel(currentPage);
+
+/* PRÓXIMA */
+
+botaoProxima.addEventListener("click", function () {
+
+    producaoAtual++;
+
+    if (producaoAtual >= producoes.length) {
+        producaoAtual = 0;
+    }
+
+    mostrarProducao(producaoAtual);
+
 });
 
-// Evento do botão Anterior
-prevBtn.addEventListener('click', () => {
-  if (currentPage > 0) {
-    currentPage--;
-  } else {
-    currentPage = pages.length - 1; // Vai para a última se clicar em voltar no início (opcional)
-  }
-  updateCarousel(currentPage);
+
+/* ANTERIOR */
+
+botaoAnterior.addEventListener("click", function () {
+
+    producaoAtual--;
+
+    if (producaoAtual < 0) {
+        producaoAtual = producoes.length - 1;
+    }
+
+    mostrarProducao(producaoAtual);
+
 });
