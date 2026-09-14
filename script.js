@@ -424,72 +424,94 @@ document.addEventListener("keydown", function(evento) {
 
 
 /* ==========================================
-   SLIDES DAS PRODUÇÕES
+   NAVEGAÇÃO DAS PRODUÇÕES
 ========================================== */
 
-const producoes = document.querySelectorAll(".producao-item");
+const botaoAnterior = document.getElementById("anterior");
 
-const botaoProxima = document.getElementById("proxima-producao");
-const botaoAnterior = document.getElementById("anterior-producao");
+const botaoProxima = document.getElementById("proxima");
 
-const bolinhas = document.querySelectorAll("#bolinhas-producao span");
-
-let producaoAtual = 0;
+const indicadores =
+    document.querySelectorAll(".indicador");
 
 
-/* MOSTRAR PRODUÇÃO */
-
-function mostrarProducao(indice) {
-
-    producoes.forEach((producao, index) => {
-
-        producao.classList.toggle(
-            "ativa",
-            index === indice
-        );
-
-    });
+let slideAtual = 0;
 
 
-    /* Atualiza as bolinhas */
+/* ATUALIZAR BOLINHAS */
 
-    bolinhas.forEach((bolinha, index) => {
+function atualizarIndicadores() {
 
-        bolinha.classList.toggle(
-            "ativa",
-            index === indice
-        );
+    indicadores.forEach(function(indicador, indice) {
+
+        if (indice === slideAtual) {
+
+            indicador.classList.add("ativo");
+
+        } else {
+
+            indicador.classList.remove("ativo");
+
+        }
 
     });
 
 }
 
 
-/* PRÓXIMA */
+/* BOTÃO PRÓXIMA */
 
-botaoProxima.addEventListener("click", function () {
+if (botaoProxima) {
 
-    producaoAtual++;
+    botaoProxima.addEventListener("click", function() {
 
-    if (producaoAtual >= producoes.length) {
-        producaoAtual = 0;
-    }
+        slideAtual++;
 
-    mostrarProducao(producaoAtual);
+        if (slideAtual >= indicadores.length) {
 
-});
+            slideAtual = 0;
+
+        }
+
+        atualizarIndicadores();
+
+    });
+
+}
 
 
-/* ANTERIOR */
+/* BOTÃO ANTERIOR */
 
-botaoAnterior.addEventListener("click", function () {
+if (botaoAnterior) {
 
-    producaoAtual--;
+    botaoAnterior.addEventListener("click", function() {
 
-    if (producaoAtual < 0) {
-        producaoAtual = producoes.length - 1;
-    }
+        slideAtual--;
 
-    mostrarProducao(producaoAtual);
+        if (slideAtual < 0) {
+
+            slideAtual = indicadores.length - 1;
+
+        }
+
+        atualizarIndicadores();
+
+    });
+
+}
+
+
+/* CLICAR NAS BOLINHAS */
+
+indicadores.forEach(function(indicador) {
+
+    indicador.addEventListener("click", function() {
+
+        slideAtual =
+            Number(indicador.dataset.slide);
+
+        atualizarIndicadores();
+
+    });
 
 });
